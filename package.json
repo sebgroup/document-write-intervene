@@ -1,24 +1,40 @@
 {
-  "name": "document-write-intervene",
-  "version": "0.0.0",
-  "description": "",
+  "name": "@sebgroup/document-write-intervene",
+  "version": "0.0.0-semantically-released",
+  "description": "Prevent document write from writing to your document and instead insert a new script to the dom.",
   "main": "index.js",
   "scripts": {
     "test": "mocha test/unit",
     "test:watch": "mocha test/unit --watch",
     "e2e": "mocha test/e2e/specs",
-    "webdriver:start": "webdriver-manager update && webdriver-manager start"
+    "webdriver:start": "webdriver-manager update && webdriver-manager start",
+    "commit": "git-cz",
+    "travis-deploy-once": "travis-deploy-once --pro",
+    "semantic-release": "semantic-release"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebgroup/document-write-intervene.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Radu Achim",
+  "license": "Apache-2.0",
   "devDependencies": {
+    "@commitlint/cli": "^7.2.0",
+    "@commitlint/config-conventional": "^7.1.2",
     "browserify": "^16.2.3",
     "browserify-string": "^1.1.1",
     "chai": "^4.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.1.1",
     "mocha": "^5.2.0",
     "proxyquire": "^2.1.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
+    "semantic-release": "^15.9.17",
     "sinon": "^6.3.4",
     "webdriver-manager": "^12.1.0"
   },
@@ -26,5 +42,20 @@
     "env": [
       "mocha"
     ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --edit"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
