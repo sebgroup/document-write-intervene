@@ -1,2 +1,2 @@
 const intervene = require('./lib/intervene')
-module.exports = intervene
+module.exports = { intervene }

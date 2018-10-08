@@ -20,13 +20,14 @@ Otherwise you could have a look at `browserify` to integrate it in your project
 Install via npm:
 
 ```
-$ npm install document-write-intervene
+$ npm install @sebgroup/document-write-intervene
 ```
 
 ## Example
 
 ```
-require('document-write-intervene')()
+const { intervene } = require('@sebgroup/document-write-intervene')
+intervene()
 ```
 
 ## Testing
