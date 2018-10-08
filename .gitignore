@@ -1,0 +1,4 @@
+node_modules
+.__browserify_string_empty.js
+.vscode
+.prettierrc
