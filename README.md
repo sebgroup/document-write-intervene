@@ -26,7 +26,8 @@ $ npm install @sebgroup/document-write-intervene
 ## Example
 
 ```
-require('@sebgroup/document-write-intervene')()
+const { intervene } = require('@sebgroup/document-write-intervene')
+intervene()
 ```
 
 ## Testing
