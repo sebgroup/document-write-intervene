@@ -1,0 +1,26 @@
+dist: trusty
+sudo: false
+language: node_js
+node_js: node
+
+install:
+- npm ci
+cache:
+  directories:
+  - $HOME/.npm
+
+script:
+- npm run test
+
+git:
+  depth: 3
+
+after_success:
+- if [ "$TRAVIS_BRANCH" == "master" ];
+  then npm run travis-deploy-once "npm run semantic-release";
+  fi
+
+
+branches:
+  except:
+  - /^v\d+\.\d+\.\d+$/
