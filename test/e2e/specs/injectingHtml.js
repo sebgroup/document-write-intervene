@@ -73,7 +73,7 @@ describe('injecting html', () => {
     ` // </scr" + "ipt>" is used to trick the browser not consider that as the closing script tag
 
     script = `
-      const intervene = require('./index.js')
+      const { intervene } = require('./index.js')
       intervene()
     `
 
