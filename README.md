@@ -9,8 +9,10 @@ It checks if the markup is a `<script>` tag and will load it asynchronous.
 
 Otherwise it will insert the contents using `insertAdjacentHTML` on the `body`
 
-Tested inside an Angular project. 
-It should work seamlessly with a React project.
+Tested inside an Angular project.  
+
+It should work seamlessly with a React project. 
+
 Otherwise you could have a look at `browserify` to integrate it in your project
 
 ## Installation
