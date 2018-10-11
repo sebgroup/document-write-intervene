@@ -2,15 +2,18 @@
   "name": "@sebgroup/document-write-intervene",
   "version": "0.0.0-semantically-released",
   "description": "Prevent document write from writing to your document and instead insert a new script to the dom.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha test/unit",
     "test:watch": "mocha test/unit --watch",
-    "e2e": "mocha test/e2e/specs",
-    "webdriver:start": "webdriver-manager update && webdriver-manager start",
+    "e2e:chrome": "mocha --timeout 15000 test/e2e/specs/chrome",
+    "e2e:ie": "mocha --timeout 15000 test/e2e/specs/ie",
+    "webdriver:chrome": "webdriver-manager update --chrome && webdriver-manager start",
+    "webdriver:ie": "webdriver-manager update --ie && webdriver-manager start --ie test/e2e/IEDriverServer.exe",
     "commit": "git-cz",
     "travis-deploy-once": "travis-deploy-once --pro",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "build": "babel src --out-dir lib && cp index.d.ts lib"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
@@ -24,6 +27,9 @@
   "author": "Radu Achim",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.1.2",
     "browserify": "^16.2.3",
